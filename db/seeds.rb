@@ -1,7 +1,7 @@
 require 'faker'
 
 # Create Users
-25.times do
+50.times do
   user = User.new(
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -14,7 +14,7 @@ uses = User.all
 
 # Create Wikis
 
-100.times do 
+300.times do 
   Wiki.create!(
     title:  Faker::Lorem.sentence,
     body:   Faker::Lorem.paragraph
@@ -27,7 +27,7 @@ wikis = Wiki.all
 # Create an admin user
   admin = User.new(
     name: 'Adam Admin',
-    email: 'admin@example.com',
+    email: 'newadmin@example.com',
     password: 'helloworld',
     role: 'admin')
 
@@ -37,7 +37,7 @@ wikis = Wiki.all
   # Create a premium user
     premium = User.new(
       name: 'Premium Bee',
-      email: 'premium@example.com',
+      email: 'newpremium@example.com',
       password: 'helloworld',
       role: 'premium')
 
@@ -48,7 +48,7 @@ wikis = Wiki.all
 
     standard = User.new(
       name: 'Standard Slacker',
-      email: 'standard@example.com',
+      email: 'newstandard@example.com',
       password: 'helloworld',
       role: 'standard')
 

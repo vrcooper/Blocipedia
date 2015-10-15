@@ -1,7 +1,9 @@
-<h1><%= @wiki.title %></h1>
-
+<h1><%= @wiki.title %>
+<% if policy(Wiki.new).edit? %>
 <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-
+<% end %>
+</h1>
 <p><%= @wiki.body %></p>
-
+<% if policy(Wiki.new).destroy? %>
 <%= link_to "Delete Wiki", @wiki, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this wiki?' } %>
+<% end %>

@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   get 'wikis/create'
 
   devise_for :users
+
+  resources :charges, only:[:new, :create]
   
   resources :wikis
  
-
   get 'welcome/index'
 
   authenticated do

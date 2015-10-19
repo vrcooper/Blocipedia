@@ -15,7 +15,7 @@
       
       <div class="pull-right user-info">
         <% if current_user %>
-          Hello <%= current_user.email  %>! 
+          Hello <%= link_to current_user.email, edit_user_registration_path  %>! 
           <%= link_to destroy_user_session_path, method: :delete , class: 'btn btn-primary btn-sm%' do %>
           <span class="glyphicon glyphicon-log-out"></span>
           <% end %>

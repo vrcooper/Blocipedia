@@ -28,7 +28,7 @@ class ChargesController < ApplicationController
     current_user.update_attribute(:role, 'premium')
 
   flash[:notice] = "Congratulations, #{current_user.email}! Enjoy your new Premium membership."
-  redirect_to user_path(current_user) # or wherever
+  redirect_to wikis_path # or wherever
 
   # Stripe will send back CardErrors, with friendly messages
   # when something goes wrong.
@@ -37,4 +37,14 @@ class ChargesController < ApplicationController
   flash[:error] = e.message
   redirect_to new_charge_path
   end
+
+  # Updating the private attribute to false (aka public) on every wiki which belongs to the user
+  # Downgrade user role back to standard
+  def downgrade
+      current_user.wikis.each {|w| w.update_attribute(:private, false) }
+      current_user.update_attribute(:role, 'standard')
+      flash[:notice] = "Congratulations, #{current_user.email}! You have downgraded to Standard membership."
+      redirect_to wikis_path
+  end
+
 end

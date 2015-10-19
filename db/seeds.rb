@@ -26,8 +26,8 @@ wikis = Wiki.all
 
 # Create an admin user
   admin = User.new(
-    name: 'Adam Admin',
-    email: 'newadmin@example.com',
+    name: 'Ella Admin',
+    email: 'admin@example.com',
     password: 'helloworld',
     role: 'admin')
 
@@ -36,8 +36,8 @@ wikis = Wiki.all
 
   # Create a premium user
     premium = User.new(
-      name: 'Premium Bee',
-      email: 'newpremium@example.com',
+      name: 'Premium Me',
+      email: 'premium@example.com',
       password: 'helloworld',
       role: 'premium')
 
@@ -47,8 +47,8 @@ wikis = Wiki.all
   # Create a standard user
 
     standard = User.new(
-      name: 'Standard Slacker',
-      email: 'newstandard@example.com',
+      name: 'Standard Sucker',
+      email: 'standard@example.com',
       password: 'helloworld',
       role: 'standard')
 

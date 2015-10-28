@@ -1,7 +1,9 @@
 class WikisController < ApplicationController
   def index
-    @wikis = Wiki.visible_to(current_user).paginate(page: params[:page], per_page:10)
-    authorize @wikis
+    #@wikis = Wiki.visible_to(current_user).paginate(page: params[:page], per_page:10)
+    #authorize @wikis
+    @wikis = policy_scope(Wiki)
+
   end
 
   def show

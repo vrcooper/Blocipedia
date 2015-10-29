@@ -14,17 +14,11 @@ class WikiPolicy < ApplicationPolicy
     # record.private? || (user.present? && user.role == 'admin') || (user.present? && user.role == 'premium') 
   end
 
-    class Scope
-      attribute_reader :user, :scope
-
-      def initialize(user, scope)
-        @user = user
-        @scope = scope
-      end
-
+    class Scope < Scope
+      
       def resolve
         wikis = []
-        if user.role == 'admin'
+        if user.role == 'admin' 
           wikis = scope.all # if the user is an admin, show them all the wikis
         elsif user.role == 'premium'
           all_wikis = scope.all

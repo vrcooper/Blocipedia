@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   delete 'charges/downgrade'
   
-  resources :wikis
+  resources :wikis do
+    resources :collaborators, only: [:create, :destroy]
+  end
  
   get 'welcome/index'
 

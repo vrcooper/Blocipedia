@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'wikis/create'
 
   devise_for :users
 
@@ -9,7 +8,7 @@ Rails.application.routes.draw do
   delete 'charges/downgrade'
   
   resources :wikis do
-    resources :collaborators, only: [:create, :destroy]
+    resources :collaborators, only: [:new, :create, :destroy]
   end
  
   get 'welcome/index'

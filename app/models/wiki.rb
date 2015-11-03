@@ -15,3 +15,13 @@ class Wiki < ActiveRecord::Base
   end
 
 end
+
+
+# users_id | wiki_id
+# 1        | 2
+# 2        | 2
+# 3        | 1
+
+# wiki_2.users => user_1, user_2
+# user_ids = Collaborator.where(wiki_id: wiki.id).map(&:user_id)
+# User.where(id: user_ids)

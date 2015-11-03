@@ -18,6 +18,9 @@ class WikiPolicy < ApplicationPolicy
       
       def resolve
         wikis = []
+
+        return Wiki.visible_to(user) if user.blank? 
+
         if user.role == 'admin' 
           wikis = scope.all # if the user is an admin, show them all the wikis
         elsif user.role == 'premium'
